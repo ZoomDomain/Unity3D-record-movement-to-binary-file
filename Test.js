@@ -1,5 +1,6 @@
 #pragma strict
-// just create a save folder for the binary file, place the file on a GO , select rec, press S+V when you're happy with the rec, and then replay with play checked.
+// just create a save folder for the binary file, place this script on a GameObject , select rec and move the GO around, 
+//press S+V when you're happy with the rec, it will save a binary to assets/saved animations. then replay with play checked in this script. 
 
 //read notes at end of file. 
 
