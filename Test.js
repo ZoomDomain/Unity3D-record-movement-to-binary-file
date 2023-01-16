@@ -1,4 +1,16 @@
-﻿#pragma strict
+/*
+just attach to GO, press load or save check mark. for unity 2017 should work fine in unity 5 and 2020. its JS. 
+- file saved to assets/saved animations
+- file loads and plays if option selected
+- To save the array to file at the end of a play, you have to press S + V keys. 
+- only one file name 00000.bin, if you wanna record many GOS,just give them unique names 
+- movement interferes with some physics if physics is conflicting the position update command, it will throw a NaN error. 
+- only really works for cartoon type stuff, 2D, animations, nto physics integrated, but you can change the position commands into key press commands for that. 
+- sorry it's rough code. 
+- length can be set in options, for them moment it's like 1000 frames so 20 seconds of play, but you can make that 500 seconds. you can add localscale didnt have time. 
+-antialias is not running, it's at teh end, you can use it to run through the array and anti-alias it prior to writing for replay at higher FPS.
+*/
+#pragma strict
 
 import System.Collections.Generic;
 import System.Runtime.Serialization.Formatters.Binary;
