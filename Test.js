@@ -1,16 +1,7 @@
-/*
-just attach to GO, press load or save check mark. for unity 2017 should work fine in unity 5 and 2020. its JS. 
-- file saved to assets/saved animations (must create that folder)
-- file loads and plays if option selected
-- To save the array to file at the end of a play, you have to press S + V keys. 
-- only one file name 00000.bin, if you wanna record many GOS, just give them unique names. and put a script on every GO. 
-- movement interferes with some physics if physics is conflicting the position update command, it will throw a NaN error. 
-- only really works for cartoon type stuff, 2D, animations, nto physics integrated, but you can change the position commands into key press commands for that. 
-- sorry it's rough code. 
-- length can be set in options, for them moment it's like 1000 frames so 20 seconds of play, but you can make that 500 seconds. you can add localscale didnt have time. 
--antialias is not running, it's at teh end, you can use it to run through the array and anti-alias it prior to writing for replay at higher FPS.
-*/
 #pragma strict
+// just create a save folder for the binary file, place the file on a GO , select rec, press S+V when you're happy with the rec, and then replay with play checked.
+
+//read notes at end of file. 
 
 import System.Collections.Generic;
 import System.Runtime.Serialization.Formatters.Binary;
@@ -20,15 +11,10 @@ private var myArray : float[] ;
 private var myArray2 : float[] ;
 
 
-
-
-
-	
-
 	//var cam : Camera;
 	
-	 var Rarray : float[] ;
-	private var num    = 1000   ; // index length to jump in 2D array 
+	private var Rarray : float[] ;
+	private var num    = 5000   ; // index length to jump in 2D array 
 	
 	public var grecnow = false;
 	public var gplaynow = false; 
@@ -36,10 +22,11 @@ private var myArray2 : float[] ;
 	 
 	function Start()
 	{	
-		if( gplaynow == true )LoadList();
-		Rarray = new float[num*60000];	
+
+		Rarray = new float[num*40000];	
 		for (vma in Rarray) vma = float.NaN;
-		//restPosition = gameObject.transform.position;		
+		//restPosition = gameObject.transform.position;
+		if( gplaynow == true )LoadList();		
 	}	
 
 	
@@ -195,6 +182,15 @@ function OnApplicationQuit() {
 
 
 
-
+/*
+just attach to GO, press load or save check mark. for unity 2017 should work fine in unity 5 and 2020. its JS. 
+- file saved to assets/saved animations (must create that folder)
+- file loads and plays if option selected
+- To save the array to file at the end of a play, you have to press S + V keys. 
+- only one file name 00000.bin, if you wanna record many GOS, just give them unique names. and put a script on every GO. 
+- sorry it's rough code. 
+- frame length to record can be set in options, for them moment it's like 5000 frames so 100 seconds of play, but you can make that 500 seconds. you can add localscale didnt have time. 
+-antialias is not running, it's at teh end, you can use it to run through the array and anti-alias it prior to writing for replay at higher FPS.
+*/
 
 
